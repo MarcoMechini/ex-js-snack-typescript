@@ -17,3 +17,42 @@ else{
   console.log('Tipo non supportato');  
   console.log(datoGenerico);  
 }
+
+// snack 2 
+type Dipendente = {
+  nome: string,
+  cognome: string,
+  annoNascita : number,
+  sesso : 'm' | 'f',
+  anniDiServizio : number[],
+  readonly emailAziendale: string,
+  contratto: 'indeterminato' | 'determinato' | 'freelance'
+}
+
+const Dip1 : Dipendente ={
+  nome : 'Paolo',
+  cognome: 'Rossi',
+  annoNascita : 1980,
+  sesso : 'm',
+  anniDiServizio : [2000,2001],
+  emailAziendale: 'apolsdfasdg',
+  contratto: 'indeterminato'
+}
+
+type Developer = Dipendente & {
+  livelloEsperienza: 'Junior' | 'Mid' | 'Senior' ,
+  linguaggi?: string[],
+  certificazioni: string[]
+}
+type ProjectManager = Dipendente & {
+  teamSize : number | null ,
+  budgetGestito?: number,
+  stakeholderPrincipali  : string[]
+}
+type Team = {
+  nome: string,
+  progettoAttuale: string | null,
+  budget: number,
+  memebri: [ProjectManager, Developer, ...Developer[]]
+}
+
